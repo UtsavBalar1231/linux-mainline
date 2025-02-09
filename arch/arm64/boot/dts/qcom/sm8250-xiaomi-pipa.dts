@@ -127,7 +127,7 @@
 	gpio_keys: gpio-keys {
 		compatible = "gpio-keys";
 
-		pinctrl-0 = <&vol_up_n>;
+		pinctrl-0 = <&vol_up_n>, <&hall_int0_h>;
 		pinctrl-names = "default";
 
 		key-vol-up {
@@ -1423,13 +1423,22 @@
 		drive-strength = <2>;
 		bias-pull-down;
 	};
-bq2597x_master_int_default: bq2597x-master-int-default {
+
+	bq2597x_master_int_default: bq2597x-master-int-default {
 		pins = "gpio68";
 		function = "gpio";
 		drive-strength = <2>;
 		bias-pull-up;
 		input-enable;
 	};
+
+	hall_int0_h: hall-int0 {
+		pins = "gpio110";
+		function = "gpio";
+		drive-strength = <2>;
+		bias-pull-up;
+	};
+
 	tert_tdm_active: tert-tdm-active-state {
 		sck-pins {
 			pins = "gpio133";
